@@ -2,15 +2,35 @@
 import  React, { Component } from "react" ;
 import TodoItem from './TodoItem' ;
 
+
 class TodoList extends Component {
+
+ 
             
-    render(){
+    render(){ 
+
+    
+
+     const   {items , handleDelete , handleEdit , clearList} = this.props ;
 
         return(
-            <div>
-                <h1>todolist</h1>
-                 <TodoItem />
-            </div>
+           <ul className="list-group">
+              <h3 className="text-center text-capitalize mt-3">Todo List Items</h3>
+              {items.map((element , index)=>{
+               return <TodoItem 
+                                   key={element.id}
+                                   delete={()=>handleDelete(element.id)}
+                                   edit={()=>handleEdit(element.id)}
+                                   title={element.title}
+                />
+              } )}
+              <button type="button" className="btn 
+              btn-danger
+               mt-5 
+              btn-block
+              text-uppercase"
+              onClick={clearList}>Clear</button>
+           </ul>  
         )
     }
 }

@@ -1,9 +1,5 @@
+.GlobaHeading h3{
 
-.matcho{
+  text-align: center;
 
-  border-radius: 5px;
-  border: 1px solid #eee;
-  box-shadow: 0px 3px 3px black;
-  padding: 5px;
-  margin: 5px;
 }

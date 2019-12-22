@@ -1,4 +1,5 @@
-import  React, { Component } from "react"
+import  React, { Component } from "react" ;
+import './TodoInput.css' ;
 
 
 
@@ -7,8 +8,28 @@ import  React, { Component } from "react"
     render(){
 
         return(
-            <div>
-                  <h1>todoinput</h1>
+
+            <div className="container">
+                 <div className="card card-body">
+                    <form onSubmit={this.props.handleSubmit}>
+                       <div className="input-group">
+                           <div className="input-group-prepend">
+                             <div className="input-group-text bg-primary text-white">
+                                <i className="fas fa-book"></i>
+                             </div>
+                           </div>
+                           <input
+
+                             type="text"
+                             className="form-control text-capitalize"
+                             placeholder="add todo item"
+                             onChange={this.props.handleChange}
+                              value={this.props.item}
+                              />
+                       </div>
+                       <button  type="submit" className="btn btn-block btn-primary mt-3"> Submit </button>
+                    </form>
+                 </div>
             </div>
         )
     }
