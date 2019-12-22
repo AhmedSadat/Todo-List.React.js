@@ -27,7 +27,13 @@ import './TodoInput.css' ;
                               value={this.props.item}
                               />
                        </div>
-                       <button  type="submit" className={this.props.edit ? 'btn btn-block btn-success mt-3 text-uppercase':'btn btn-block btn-primary mt-3'}> 
+                       <button 
+                        type="submit"
+                         className={this.props.edit ? 
+                         'btn btn-block btn-success mt-3 text-uppercase' 
+                         :'btn btn-block btn-primary mt-3'}
+                         disabled={ this.props.item ? false : true }
+                         > 
                               {this.props.edit ? "Edit Item":"Add Item"} 
                        </button>
                     </form>
