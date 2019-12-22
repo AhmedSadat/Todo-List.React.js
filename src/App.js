@@ -39,8 +39,6 @@ class App extends Component {
 
   clearList = () => {
 
-
-
     this.setState({
                items : []                  
     });
@@ -51,8 +49,10 @@ class App extends Component {
 
     let index = this.state.items.findIndex((el) => {
 
-      el.id === id
+     return  el.id === id
     })
+
+    console.log(index);
 
     const newItems = this.state.items;
     newItems.splice(index, 1);
@@ -63,7 +63,18 @@ class App extends Component {
 
   }
 
-  handleEdit = () => {
+  handleEdit = (id) => {
+  
+   
+    const obj = this.state.items ;
+   const ad =  obj[id] ;
+   obj.splice(id , 1) ;
+   this.setState({
+     items:obj , 
+     item:ad.title , 
+     editItem : true
+   });
+   console.log(ad);
 
   }
 
@@ -71,7 +82,7 @@ class App extends Component {
 
   render() {
 
-    console.log(this.state);
+   
     return (
 
       <div className="container">
@@ -86,6 +97,7 @@ class App extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
            item={this.state.item}
+           edit={this.state.editItem}
         />
 
         <TodoList

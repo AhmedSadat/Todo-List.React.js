@@ -20,7 +20,7 @@ class TodoList extends Component {
                return <TodoItem 
                                    key={element.id}
                                    delete={()=>handleDelete(element.id)}
-                                   edit={()=>handleEdit(element.id)}
+                                   edit={()=>handleEdit(index)}
                                    title={element.title}
                 />
               } )}
