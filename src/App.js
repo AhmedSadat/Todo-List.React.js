@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TodoInput from './components/TodoInput';
-import TodoList from './components/Todolist';
+import TodoInput from './components/TodoInput/TodoInput';
+import TodoList from './components/Todolist/Todolist';
 import uuid from 'uuid';
 
 class App extends Component {
