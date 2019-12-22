@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoInput from './components/TodoInput/TodoInput';
-import TodoList from './components/Todolist/Todolist';
+import TodoList from './components/TodoList/Todolist';
+import Modal from './components/modal/modal' ;
 import uuid from 'uuid';
 
 class App extends Component {
@@ -12,8 +13,23 @@ class App extends Component {
     items: [],
     id: uuid(),
     item: '',
-    editItem: false
+    editItem: false , 
+    
+    open:false 
 
+  }
+
+  closeModel = ()=>{
+    this.setState({
+      open:false 
+    })
+  }
+
+  closeModelWithDeletion = ()=>{
+    this.setState({
+      open:false ,
+      items:[]
+    })
   }
 
   handleChange = (e) => {
@@ -37,11 +53,21 @@ class App extends Component {
 
   }
 
+
+
   clearList = () => {
+   
+    // let bool = !this.state.open
 
     this.setState({
-               items : []                  
+               open:true                 
     });
+
+   
+
+    // this.setState({
+    //   open:false
+    // })
 
   }
 
@@ -86,6 +112,11 @@ class App extends Component {
     return (
 
       <div className="container">
+
+    { this.state.open ?  <Modal 
+    closeModelWithDeletion = {this.closeModelWithDeletion}
+    closeModal={this.closeModel}/> : null }
+
         <div className="col-lg-10 col-md-8 mx-auto mt-5">
           <div className="GlobaHeading">
             <h3>TodoList App</h3>
@@ -108,6 +139,7 @@ class App extends Component {
           handleEdit={this.handleEdit}
 
         />
+       
       </div>
 
 
